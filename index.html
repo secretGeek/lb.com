@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LeonBambrick.com</title>
+<!-- 
+
+HELLO AND WELCOME to the source code of LeonBambrick.com
+
+This is a listing of as many of my online hobby projects as I could round up in the space of a few bus trips.
+
+If you haven't tried clicking on the row of filters across the top, then I urge you to go back and try it.
+
+If you HAVE tried clicking on the row of filters across the top, then you're probably asking: 
+
+    *How* is that filtering animation effect done? 
+    
+(And that's probably why you clicked 'view source' in the first place.)
+
+It's animated using 'isotope'  -- an exquisite jQuery plugin for magical layouts  -- from http://isotope.metafizzy.co
+
+The font 'open sans condensed' is from the google web fonts collection.
+
+-----
+
+One thing I didn't take the time to include was links to talks i've given. Talks include:
+
+ * coding on the bus
+ * live coding mvc
+ * build your own microIsv
+ * F# eye for the C# guy
+ * Asp.net core on LINUX (with Joseph Cooney)
+ * Evergreen Skills for Software Developer (with Joseph Cooney)
+
+ 
+ 
+And here's the nimbleText pattern:
+
+        <span class='$0'>
+            <a href='$1'>
+                <img src='image/$2' />
+
+                <span class='title'>
+                    $3</span>
+
+            </a>
+        </span>
+ 
+    tags|url|png|title
+ 
+-->
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+    <meta charset="utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet'
+        type='text/css'>
+    <style>
+        *
+        {
+            padding: 0px;
+            margin: 0px;
+        }
+        html, body, #container
+        {
+            height: 100%;
+            font-family: 'Open Sans Condensed' , Calibri, Arial, Helvetica, "sans-serif" , "Comic Sans MS";
+            background-color: #F2F2F2;
+        }
+        #container
+        {
+            margin: 5px;
+        }
+        span.title
+        {
+            display: block;
+            text-align: center;
+            background-color: #aaa;
+            border-bottom-left-radius: 7px;
+            border-bottom-right-radius: 7px;
+        }
+        a
+        {
+            text-decoration: none;
+        }
+        li a:hover
+        {
+            background-color: #BBB;
+        }
+        a, a:hover, a:visited
+        {
+            color: #222;
+        }
+        .project
+        {
+            display: block;
+            float: left;
+            border: 1px solid #aaa;
+            margin: 5px;
+            box-shadow: 3px 3px 7px #444644;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            margin: 9px;
+            margin-top: 5px;
+        }
+        .option-set li
+        {
+            display: inline;
+        }
+        ul
+        {
+            padding-left: 20px;
+        }
+        #title
+        {
+            background-color: #111;
+            color: #ccc;
+            padding: 20px;
+            padding-bottom: 6px;
+            font-family: 'Open Sans Condensed' , sans-serif;
+            font-size: 36px;
+        }
+        #options
+        {
+            background-color: #AAA;
+        }
+        .selected, a:hover.selected
+        {
+            background-color: #CCC;
+        }
+        li a
+        {
+            padding: 5px;
+            margin: 5px;
+            -left: 15px;
+            margin-right: 5px;
+            display: inline-block;
+            border-radius: 7px;
+        }
+        
+        /* Start: Recommended Isotope styles */
+        /**** Isotope Filtering ****/
+        
+        .isotope-item
+        {
+            z-index: 2;
+        }
+        
+        .isotope-hidden.isotope-item
+        {
+            pointer-events: none;
+            z-index: 1;
+        }
+        /**** Isotope CSS3 transitions ****/
+        
+        .isotope, .isotope .isotope-item
+        {
+            -webkit-transition-duration: 0.8s;
+            -moz-transition-duration: 0.8s;
+            -ms-transition-duration: 0.8s;
+            -o-transition-duration: 0.8s;
+            transition-duration: 0.8s;
+        }
+        
+        .isotope
+        {
+            -webkit-transition-property: height, width;
+            -moz-transition-property: height, width;
+            -ms-transition-property: height, width;
+            -o-transition-property: height, width;
+            transition-property: height, width;
+        }
+        
+        .isotope .isotope-item
+        {
+            -webkit-transition-property: -webkit-transform, opacity;
+            -moz-transition-property: -moz-transform, opacity;
+            -ms-transition-property: -ms-transform, opacity;
+            -o-transition-property: -o-transform, opacity;
+            transition-property: transform, opacity;
+        }
+        
+        /**** disabling Isotope CSS3 transitions ****/
+        
+        .isotope.no-transition, .isotope.no-transition .isotope-item, .isotope .isotope-item.no-transition
+        {
+            -webkit-transition-duration: 0s;
+            -moz-transition-duration: 0s;
+            -ms-transition-duration: 0s;
+            -o-transition-duration: 0s;
+            transition-duration: 0s;
+        }
+        
+        /* End: Recommended Isotope styles */
+    </style>
+</head>
+<body>
+    <section id='title'>LeonBambrick.com</section>
+    <section id="options" class="clearfix">
+        <ul id="filter" class="option-set clearfix" data-option-key="filter">
+            <li>FILTER BY:&nbsp;&nbsp;&nbsp; </li>
+            <li><a href="#show-all" data-option-value="*" class="selected">ALL</a></li>
+            |
+            <li><a href="#features" data-option-value=".game">games</a></li>
+            |
+            <li><a href="#features" data-option-value=".contact">contact</a></li>
+            |
+            <li><a href="#features" data-option-value=".opensource">open source</a></li>
+            |
+            <li><a href="#features" data-option-value=".dotnet">.net</a></li>
+            |
+            <li><a href="#features" data-option-value=".website">web sites</a></li>
+            |
+            <li><a href="#features" data-option-value=".javascript">javascript</a></li>
+            |
+            <li><a href="#features" data-option-value=".mvc">mvc</a></li>
+            |
+            <li><a href="#features" data-option-value=".html5">html5</a></li>
+            |
+            <li><a href="#features" data-option-value=".editor">editors</a></li>
+            |
+            <li><a href="#features" data-option-value=".productivity">productivity</a></li>
+            |
+            <li><a href="#features" data-option-value=".commandline">commandline</a></li>
+            |
+            <li><a href="#examples" data-option-value=".joke">parody</a></li>
+        </ul>
+    </section>
+    <div id="container">
+
+        <span class='project product winforms website productivity dotnet'>
+            <a href='http://TimeSnapper.com'>
+                <img src='image/ts-mainform-inactive.png' title='' />
+
+                <span class='title'>
+                    TimeSnapper</span>
+
+            </a>
+        </span>
+
+        <span class='project winforms csv website product editor productivity dotnet javascript'>
+            <a href='http://nimbleText.com'>
+                <img src='image/nimbleText_plain_narrow_202.png' />
+
+                <span class='title'>
+                    NimbleText</span>
+
+            </a>
+        </span>
+
+        <span class='project contact blog writing website dotnet'>
+            <a href='http://secretGeek.net'>
+                <img src='image/secretGeek.png' />
+
+                <span class='title'>
+                    secretgeek blog</span>
+
+            </a>
+        </span>
+
+        <span class='project opensource html5 css'>
+            <a href='http://higgins.codeplex.com'>
+                <img src='image/higgins_logo.png' />
+
+                <span class='title'>
+                    higgins</span>
+
+            </a>
+        </span>
+
+        <span class='project contact stackoverflow'>
+            <a href='http://stackoverflow.com/users/49/leon-bambrick'>
+                <img src='image/stackoverflow.png' />
+
+                <span class='title'>
+                    stack overflow profile</span>
+
+            </a>
+        </span>
+
+        <span class='project contact email'>
+            <img src='image/contact.png' />
+
+            <span class='title'>
+                Email: leon bambrick @ gmail dot com</span>
+
+        </span>
+
+        <span class='project contact codeplex opensource dotnet'>
+            <a href='http://www.codeplex.com/site/users/view/secretGeek#projects'>
+                <img src='image/colorVariations_02.png' />
+
+                <span class='title'>
+                    codeplex/secretgeek</span>
+
+            </a>
+        </span>
+
+        <span class='project html5 javascript opensource contact website'>
+            <a href='http://LeonBambrick.com'>
+                <img src='image/lb_com.png' />
+
+                <span class='title'>
+                    LeonBambrick.com</span>
+
+            </a>
+        </span>
+
+        <span class='project tool product todo productivity dotnet'>
+            <a href='http://Timesnapper.com/nextaction/'>
+                <img src='image/nextAction_inactive.png' />
+
+                <span class='title'>
+                    nextAction</span>
+
+            </a>
+        </span>
+
+        <span class='project game joke'>
+            <a href='http://www.secretgeek.net/wikigame2.html'>
+                <img src='image/handgunsandcigarettes.png' />
+
+                <span class='title'>
+                    handguns and cigarettes</span>
+
+            </a>
+        </span>
+
+        <span class='project game dungeon crawler'>
+            <a href='http://MonsterBoxDoor.com/'>
+                <img src='image/monsterBoxDoor.png' />
+
+                <span class='title'>
+                    monster box door</span>
+
+            </a>
+        </span>
+
+        <span class='project web graphics asp.net dotnet'>
+            <a href='http://secretgeek.net/gradientmaker.asp'>
+                <img src='image/gradientMaker.png' />
+
+                <span class='title'>
+                    gradient maker</span>
+
+            </a>
+        </span>
+
+        <span class='project opensource graphics winforms python dotnet'>
+            <a href='http://fracback.codeplex.com/'>
+                <img src='image/fracback.png' />
+
+                <span class='title'>
+                    fracback</span>
+
+            </a>
+        </span>
+
+        <span class='project editor joke winforms opensource dotnet'>
+            <a href='http://fuv.codeplex.com/'>
+                <img src='image/fuv_in_action.png' />
+
+                <span class='title'>
+                    fuv</span>
+
+            </a>
+        </span>
+
+        <span class='project editor joke winforms opensource dotnet'>
+            <a href='http://zo.codeplex.com/'>
+                <img src='image/zo_error_35.png' />
+
+                <span class='title'>
+                    ZO: the binary editor</span>
+
+            </a>
+        </span>
+
+        <span class='project opensource commandline powershell winforms dotnet'>
+            <a href='http://shinypower.codeplex.com/'>
+                <img src='image/shinypower.png' />
+
+                <span class='title'>
+                    ShinyPower</span>
+
+            </a>
+        </span>
+
+        <span class='project opensource javascript productivity html5'>
+            <a href='http://nimbletext.com/automate'>
+                <img src='image/automate_calc.png' />
+
+                <span class='title'>
+                    Should I Automate It?</span>
+
+            </a>
+        </span>
+
+        <span class='project contact company website'>
+            <a href='http://nimblething.net'>
+                <img src='image/nimbleThing.png' />
+
+                <span class='title'>
+                    nimblething</span>
+
+            </a>
+        </span>
+
+        <span class='project opensource commandline nosql dotnet'>
+            <a href='http://kv.codeplex.com'>
+                <img src='image/kv.jpg' />
+
+                <span class='title'>
+                    kv</span>
+
+            </a>
+        </span>
+
+        <span class='project opensource commandline security nosql dotnet'>
+            <a href='http://kp.codeplex.com'>
+                <img src='image/kp.png' />
+
+                <span class='title'>
+                    kp</span>
+
+            </a>
+        </span>
+
+        <span class='project opensource commandline'>
+            <a href='https://bitbucket.org/secretgeek/dupes'>
+                <img src='image/dupes.png' />
+
+                <span class='title'>
+                    Dupes</span>
+
+            </a>
+        </span>
+
+        <span class='project opensource commandline dotnet'>
+            <a href='http://sysi.codeplex.com'>
+                <img src='image/sysi.png' />
+
+                <span class='title'>
+                    sysi</span>
+
+            </a>
+        </span>
+
+        <span class='project aspdotnet mvc graphics website dotnet'>
+            <a href='http://cosby.secretgeek.net/'>
+                <img src='image/cos_stripy_50.png' />
+
+                <span class='title'>
+                    cosby</span>
+
+            </a>
+        </span>
+
+        <span class='project game joke commandline javascript'>
+            <a href='http://secretgeek.net/folderGame.asp'>
+                <img src='image/shot1.png' />
+
+                <span class='title'>
+                    folder based hangman</span>
+
+            </a>
+        </span>
+        <span class='project winforms messaging nosql dotnet'>
+            <a href='https://bitbucket.org/secretgeek/harvey'>
+                <img src='image/harvey.png' />
+
+                <span class='title'>
+                    harvey (RabbitMQ chat)</span>
+
+            </a>
+        </span>
+        <span class='project opensource json csv javascript'>
+            <a href='http://agnes.codeplex.com'>
+                <img src='image/agnes.png' />
+
+                <span class='title'>
+                    agnes</span>
+
+            </a>
+        </span>
+
+        <span class='project website graphics aspdotnet mvc product asp.net dotnet'>
+            <a href='http://youmustget.it'>
+                <img src='image/youmustgetit.png' />
+
+                <span class='title'>
+                    you must get it</span>
+
+            </a>
+        </span>
+
+        <span class='project website javascript joke'>
+            <a href='http://secretgeek.net/checklist.html'>
+                <img src='image/checklist.PNG' />
+
+                <span class='title'>
+                    universal trouble shooter</span>
+
+            </a>
+        </span>
+
+        <span class='project opensource mvc commandline joke asp.net dotnet'>
+            <a href='http://Dod.CodePlex.com'>
+                <img src='image/dod_congrats_202.png' />
+
+                <span class='title'>
+                    Dos on Dope</span>
+
+            </a>
+        </span>
+
+        <span class='project api asp.net mvc dotnet'>
+            <img src='image/dirtbag_L.png' />
+
+            <span class='title'>
+                dirtbag spam cleaner</span>
+
+        </span>
+
+        <span class='project product website sets venn javascript'>
+            <a href='http://secretGeek.net/NimbleSet.htm'>
+                <img src='image/nimbleSet_right_only_th_202.png' />
+
+                <span class='title'>
+                    NimbleSet</span>
+
+            </a>
+        </span>
+
+        <span class='project javascript writing editor html text productivity'>
+            <a href='http://secretgeek.net/zen/coding.htm'>
+                <img src='image/zen_coding_70_202.png' />
+
+                <span class='title'>
+                    Zen Coding Editor</span>
+
+            </a>
+        </span>
+
+        <span class='project json javascript editor'>
+            <a href='http://secretgeek.net/sqlike/'>
+                <img src='image/jslike_editor_th_202.png' />
+
+                <span class='title'>
+                    SQLike | jsLinq | jSinq | jLinq | jimmyLinq</span>
+
+            </a>
+        </span>
+
+        <span class='project jquery javascript editor'>
+            <a href='http://secretgeek.net/rtjqe/realtimejqueryeditor.htm'>
+                <img src='image/rtjqe_40_202.png' />
+
+                <span class='title'>
+                    jQuery editor</span>
+
+            </a>
+        </span>
+
+        <span class='project javascript editor markdown'>
+            <a href='http://secretgeek.net/aw.htm'>
+                <img src='image/appWiki_202.png' />
+
+                <span class='title'>
+                    AppWiki</span>
+
+            </a>
+        </span>
+
+        <span class='project silverlight game dotnet'>
+            <a href='null'>
+                <img src='image/silverlight_matching_game_202.png' />
+
+                <span class='title'>
+                    Silverlight Matching Game</span>
+
+            </a>
+        </span>
+
+        <span class='project html5 canvas javascript opensource'>
+            <a href='http://hexerly.codeplex.com/'>
+                <img src='image/hex_logo.png' />
+
+                <span class='title'>
+                    Hexerly Html5 Hex Library</span>
+
+            </a>
+        </span>
+
+        <span class='project game html5 canvas javascript opensource'>
+            <a href='http://hexerly.codeplex.com/'>
+                <img src='image/slay_125.png' />
+
+                <span class='title'>
+                    Html5 Slay Clone</span>
+
+            </a>
+        </span>
+
+        <span class='project opensource mvc nosql library'>
+            <a href='http://stashy.CodePlex.com'>
+                <img src='image/stashy_research_128x128.png' />
+
+                <span class='title'>
+                    Stashy</span>
+
+            </a>
+        </span>
+
+        <span class='project html5 canvas javascript game opensource'>
+            <a href='http://hexerly.codeplex.com/'>
+                <img src='image/puzzler.png' />
+
+                <span class='title'>
+                    Simple Hex Puzzle</span>
+
+            </a>
+        </span>
+
+        <span class='project html5 canvas javascript opensource game'>
+            <a href='http://hexerly.codeplex.com/'>
+                <img src='image/hexgol.png' />
+
+                <span class='title'>
+                    Hex Game of Life</span>
+
+            </a>
+        </span>
+
+        <span class='project contact twitter'>
+            <a href='http://twitter.com/secretGeek'>
+                <img src='image/leon_head.png' />
+
+                <span class='title'>
+                    twitter: @secretgeek</span>
+
+            </a>
+        </span>
+        <span class='project winforms dotnet'>
+            <a href='http://secretgeek.net/add_days.asp'>
+                <img src='image/addDays.png' />
+
+                <span class='title'>
+                    Add Days</span>
+
+            </a>
+        </span>
+        <span class='project editor dotnet opensource'>
+            <a href='http://secretgeek.net/metanote_1.asp'>
+                <img src='image/metanote_3_.png' />
+
+                <span class='title'>
+                    MetaNote</span>
+
+            </a>
+        </span>
+
+        <span class='project html css website editor'>
+            <a href='http://secretgeek.net/OIDE/oide_css.htm'>
+                <img src='image/oide_css.png' />
+
+                <span class='title'>
+                    Online CSS Editor</span>
+
+            </a>
+        </span>
+        
+        
+        <span class='project social guids joke website socialnetwork'>
+            <a href='http://secretgeek.net/hotguids/'>
+                <img src='image/hot_guids.png' />
+
+                <span class='title'>
+                    Hot Guids</span>
+
+            </a>
+        </span>
+
+        <span class='project joke javascript animation'>
+            <a href='http://secretgeek.net/woody.asp'>
+                <img src='image/wood1.gif' />
+
+                <span class='title'>
+                    animated woody allen</span>
+
+            </a>
+        </span>
+
+        <span class='project joke website javascript'>
+            <a href='http://secretgeek.net/YABizPlan.html'>
+                <img src='image/bizplan_generator_202.png' />
+
+                <span class='title'>
+                    Business Plan Generator</span>
+
+            </a>
+        </span>
+
+        <span class='project joke website javascript'>
+            <a href='http://secretgeek.net/cco/cco.htm'>
+                <img src='image/cco_202.png' />
+
+                <span class='title'>
+                    CreditCardOlogy</span>
+
+            </a>
+        </span>
+
+        <span class='project joke javascript game commandline opensource html5'>
+            <a href='https://rawgit.com/secretGeek/console-adventure/master/console.html'>
+                <img src='image/console_log.png' />
+
+                <span class='title'>
+                    a console.log() adventure</span>
+
+            </a>
+        </span>
+        
+        <span class='project mvc nosql dotnet'>
+            <a href='http://boothby.secretgeek.net'>
+                <img src='image/boothby.png' />
+                <span class='title'>
+                    boothby</span>
+
+            </a>
+        </span>
+        
+        <span class='project commandline'>
+            <a href='http://www.secretgeek.net/crumbs'>
+                <img src='image/crumbs_sticker.png' />
+
+                <span class='title'>
+                    Crumbs</span>
+
+            </a>
+        </span>
+        <span class='project commandline'>
+            <a href='http://www.secretgeek.net/hgs'>
+                <img src='image/hgs.png' />
+
+                <span class='title'>
+                    hgs (the plural of hg)</span>
+
+            </a>
+        </span>
+        <span class='project opensource book javascript dotnet commandline'>
+            <a href='http://TIL.secretgeek.net'>
+                <img src='image/til.png' />
+
+                <span class='title'>
+                    Today I Learned (book)</span>
+
+            </a>
+        </span>
+        
+    </div>
+    <!-- #container -->
+    <script src="jquery-1.7.1.min.js"></script>
+    <script src="jquery.isotope.min.js"></script>
+    <script>
+        var noneClicked = true;
+
+        $(function () {
+            var $container = $('#container');
+            //filterTo('game');  
+            $container.isotope({
+                itemSelector: '.project',
+                masonry: {
+                    columnWidth: 60
+                }
+            });
+
+            var $optionSets = $('#options .option-set'),
+            $optionLinks = $optionSets.find('a');
+
+            $optionLinks.click(function () {
+                noneClicked = false;
+                var $this = $(this);
+
+                // don't proceed if already selected
+                if ($this.hasClass('selected')) {
+                    return false;
+                }
+
+                var $optionSet = $this.parents('.option-set');
+                $optionSet.find('.selected').removeClass('selected');
+                $this.addClass('selected');
+
+                filterTo($this.attr('data-option-value'));
+
+                return false;
+            });
+        });
+        function filterTo(filterValue) {
+            // make option object dynamically, i.e. { filter: '.my-filter-class' }
+            var $container = $('#container');
+
+            var options = {},
+            key = 'filter', //$optionSet.attr('data-option-key'),
+            value = filterValue; //$this.attr('data-option-value');
+            // parse 'false' as false boolean
+            value = value === 'false' ? false : value;
+            options[key] = value;
+
+            $container.isotope(options);
+        }
+
+        $(document).ready(
+            function () {
+
+                //filterTo('*');//$this.attr('data-option-value'));
+                setTimeout("showIfNoneClicked()", 2000)
+
+            });
+
+        function showIfNoneClicked() {
+            if (noneClicked == true) {
+                //should pick a different random filter each time
+                //filter = quotes[Math.round(Math.random()*(quotes.length-1))];
+                //$optionSet
+                //options = ($('#options .option-set a').length);
+                var $optionSet = $('#options .option-set'),
+                $optionLinks = $optionSet.find('a');
+                $optionSet.find('.selected').removeClass('selected');
+                $optionSet.find('.selected').removeClass('selected');
+                $newOption = $optionLinks[Math.round(Math.random() * ($optionLinks.length - 1))];
+                $($newOption).addClass('selected');
+                var filter = $($newOption).attr('data-option-value');
+                filterTo(filter);
+
+                setTimeout("showIfNoneClicked()", 3000);
+            }
+        }
+    </script>
+</body>
+</html>
