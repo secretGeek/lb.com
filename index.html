@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Leon Bambrick as a service</title>
 <!-- 
 
 HELLO AND WELCOME to the source code of LeonBambrick.com
 
-This is a listing of as many of my online hobby projects as I could round up in the space of a few bus trips.
+This is a listing of as many of my online hobby projects as I could round up in the space of 
+a few bus trips.
 
-If you haven't tried clicking on the row of filters across the top, then I urge you to go back and try it.
+If you haven't tried clicking on the row of filters across the top, then I urge you to 
+go back and try it.
 
 If you HAVE tried clicking on the row of filters across the top, then you're probably asking: 
 
@@ -16,7 +18,8 @@ If you HAVE tried clicking on the row of filters across the top, then you're pro
     
 (And that's probably why you clicked 'view source' in the first place.)
 
-It's animated using 'isotope'  -- an exquisite jQuery plugin for magical layouts  -- from https://isotope.metafizzy.co
+It's animated using 'isotope'  -- an exquisite jQuery plugin for magical layouts
+  -- from https://isotope.metafizzy.co
 
 The font 'open sans condensed' is from the google web fonts collection.
 
@@ -31,6 +34,8 @@ One thing I didn't take the time to include was links to talks i've given. Talks
 	* Asp.net core on LINUX (with Joseph Cooney)
 	* Evergreen Skills for Software Developer (with Joseph Cooney)
 
+Thing I haven't added yet
+
 	* DevShop
 	* ClownCar
 	* 32-bit
@@ -38,11 +43,11 @@ One thing I didn't take the time to include was links to talks i've given. Talks
 	* awesome csv
 	* awesome guid 
  
-And here's the nimbleText pattern:
+And here's the nimbleText.com pattern:
 
-        <span class='$0'>
+$EACH+        <span class='transparent project $0'>
             <a href='$1' target='_blank'>
-                <img src='image/$2' />
+                <img src='image/<% if ($2 == '') { 'placeholder.png' } else { $2 } %>' />
 
                 <span class='title'>
                     $3</span>
@@ -53,6 +58,7 @@ And here's the nimbleText pattern:
     tags*|url|png|title
 	* tags are space separated, should be one or more of:
 	game contact opensource dotnet website javascript mvc html5 editor productivity commandline joke 
+        
 
 things to do:
 
@@ -64,41 +70,68 @@ things to do:
 	
 Things to add:
 
-	|https://yourfirstproduct.com/info/||Your First Product
-	|https://yourfirstproduct.com/||Choose Your First Product
-	|||Lakes Creek Adventures
-	|https://github.com/secretGeek/rename-photo||rename-photo
-	|https://evergreenskills.com||Evergreen Skills for Software Developers
-	|||.ok
-	|https://secretgeek.net/codes||spycodes|
-	contact|https://github.com/secretGeek||secretgeek on github
-	contact|medium
-	|https://yourfirstproduct.com/Tools/Productive||Productivity Flowchart
-	|https://yourfirstproduct.com/tools/pricing||Minimum Price Calculator
-	|https://wiki.secretGeek.net|Wiki
-	|https://TIL.secretGeek.net|Today I Learned
-	|https://wiki.secretgeek.net/dungeon/generate||Dungeon Generator
-	
-	
-talks:
 
- * coding on the bus
- * live coding mvc
- * build your own microIsv
- * F# eye for the C# guy
- * Asp.net core on LINUX (with Joseph Cooney)
- * Evergreen Skills for Software Developer (with Joseph Cooney)
+tags|url|png|title|tags=game contact opensource dotnet website javascript mvc html5 editor productivity commandline joke product
+website productivity|https://yourfirstproduct.com/info/|yfp_articles.png|Your First Product, Articles
+product website productivity|https://yourfirstproduct.com/|yfp.png|Choose Your First Product (Book!)
+product book history|https://secretgeek.net/lca|lca_50.jpg|Lakes Creek Adventures (Book!)
+opensource commandline|https://github.com/secretGeek/rename-photo||rename-photo
+website product book|https://evergreenskills.com|evergreen.png|Evergreen Skills for Software Developers
+powershell commandline opensource|https://github.com/secretGeek/ok-ps||.ok
+website opensource|https://secretgeek.net/codes||spycodes|
+website productivity html5 javascript|https://yourfirstproduct.com/Tools/Productive|prodflow.png|Productivity Flowchart
+html5 javascript productivity product website|https://yourfirstproduct.com/tools/pricing|costs_pie_3_combined_.png|Minimum Price Calculator
+contact website dotnet html5 editor|https://wiki.secretGeek.net|sniki.png|Wiki
+dotnet website game|https://wiki.secretgeek.net/dungeon/generate||Dungeon Generator
+game javascript typescript html5|||DevShop||
+game dotnet|||robots versus electric sheep||
+html5 javascript dotnet opensource|||ClownCar||
+game javascript html5|||32-bit||
+opensource website|||awesome csv (list)||
+opensource website|||awesome guid (list)||
+opensource website game productivity javascript html5|https://secretgeek.github.io/yard-sale/|yardsale.png|Yard-sale-model|||
+game javascript html5 website joke opensource|https://secretgeek.github.io/cosmic-ray-detector/index.html|cosmicray.png|Cosmic-Ray-Detector||
+|https://secretgeek.github.io/html_wysiwyg/html.html||Brutalist HTML Quine 
+javascript html5 website opensource simulator|https://secretgeek.net/pathos_||Creative Work Simulator
+
+
 	
 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet'
         type='text/css'>
     <style>
+* {
+xbox-shadow: 1px 1px 8px #333;
+xoutline:1px solid rgba(0,0,0,0.3);
+} 
+
+.blogpost-link {
+    position:absolute;
+    top:0;
+    right:0;
+    font-size:1.5em;
+    padding:0.2em 0.4em;
+    box-shadow:0 0 3px inset rgba(0,0,0,0.7), 0 0 7px inset rgba(0,0,0,0.7);
+    background-color:rgba(20,180,250,0.5);
+    color:black !important;
+}
+
+span.project:has(a img[src='image/placeholder.png']) { 
+    display:none;
+    max-width:0 !important; 
+    max-height:0 !important
+}
+
         *
         {
-            padding: 0px;
-            margin: 0px;
+            padding: 0;
+            margin: 0;
         }
         html, body, #container
         {
@@ -125,9 +158,20 @@ talks:
         .transparent {
             opacity: 0;
         }
+
+        li a {
+            transition-duration: 0.8s;
+            transition-timing-function: cubic-bezier(0.1, 0.1, 0.5, 0.5, 1.0, 1.0);
+        }
+
         li a:hover
         {
-            background-color: #BBB;
+            box-shadow: 0 0 1px inset rgba(0,0,0,0.2), 0 0 3px inset rgba(0,0,0,0.2), 0 0 8px inset rgba(0,0,0,0.2), 0 0 11px inset rgba(0,0,0,0.2);
+            outline:0.5px solid rgba(0,0,0,0.4);
+
+        }
+        li a.selected {
+            transition-duration: 0.2s;
         }
         a, a:hover, a:visited
         {
@@ -169,6 +213,8 @@ talks:
         .selected, a:hover.selected
         {
             background-color: #CCC;
+            box-shadow: 0 0 1px inset rgba(0,0,0,0.2), 0 0 3px inset rgba(0,0,0,0.2), 0 0 8px inset rgba(0,0,0,0.2), 0 0 11px inset rgba(0,0,0,0.2);
+            outline:0.5px solid rgba(0,0,0,0.4);
         }
         li a
         {
@@ -301,7 +347,7 @@ talks:
         </span>
 
         <span class='transparent project opensource html5 css'>
-            <a href='https://higgins.codeplex.com' target='_blank'>
+            <a href='https://secretgeek.github.io/higgins/' target='_blank'>
                 <img src='image/higgins_logo.png' />
 
                 <span class='title'>
@@ -321,19 +367,32 @@ talks:
         </span>
 
         <span class='transparent project contact email'>
-            <img src='image/contact.png' />
 
-            <span class='title'>
-                Email: leon bambrick @ gmail dot com</span>
+            <a href='#' target='_blank'>
+                <img src='image/contact.png' />
+
+                <span class='title'>
+                    Email: leon bambrick @ gmail dot com</span>
+            </a>
 
         </span>
 
-        <span class='transparent project contact codeplex opensource dotnet'>
-            <a href='https://www.codeplex.com/site/users/view/secretGeek#projects' target='_blank'>
+        <span class='transparent project contact opensource dotnet'>
+            <a href='#' target='_blank'>
                 <img src='image/colorVariations_02.png' />
 
                 <span class='title'>
                     codeplex/secretgeek</span>
+
+            </a>
+        </span>
+
+        <span class='transparent project contact opensource dotnet'>
+            <a href='https://github.com/secretGeek/' target='_blank'>
+                <img src='image/github.png' title="github profile"/>
+
+                <span class='title'>
+                    github.com/secretgeek</span>
 
             </a>
         </span>
@@ -387,7 +446,7 @@ talks:
         </span>
 
         <span class='transparent project opensource graphics winforms python dotnet'>
-            <a href='https://fracback.codeplex.com/' target='_blank'>
+            <a href='https://github.com/secretGeek/fracback' target='_blank'>
                 <img src='image/fracback.png' />
 
                 <span class='title'>
@@ -397,7 +456,7 @@ talks:
         </span>
 
         <span class='transparent project editor joke winforms opensource dotnet'>
-            <a href='https://fuv.codeplex.com/' target='_blank'>
+            <a href='https://secretgeek.net/fuv_intro/' target='_blank'>
                 <img src='image/fuv_in_action.png' />
 
                 <span class='title'>
@@ -407,7 +466,7 @@ talks:
         </span>
 
         <span class='transparent project editor joke winforms opensource dotnet'>
-            <a href='https://zo.codeplex.com/' target='_blank'>
+            <a href='https://github.com/secretGeek/zo' target='_blank'>
                 <img src='image/zo_error_35.png' />
 
                 <span class='title'>
@@ -447,13 +506,15 @@ talks:
         </span>
 
         <span class='transparent project opensource commandline nosql dotnet'>
-            <a href='https://kv.codeplex.com' target='_blank'>
+            <a href='https://github.com/secretGeek/kv' target='_blank'>
                 <img src='image/kv.jpg' />
 
-                <span class='title'>
+                <span class='title' title="KV - key value store">
                     kv</span>
+                    
 
             </a>
+            <a class="blogpost-link" title="kv can remember it for you, wholesale" href="https://secretgeek.net/kv" target="_blank">kv can remember it for you, wholesale</a>
         </span>
 
         <span class='transparent project opensource commandline security nosql dotnet'>
@@ -525,7 +586,7 @@ talks:
         </span>
 
         <span class='transparent project website graphics aspdotnet mvc product asp.net dotnet'>
-            <a href='https://youmustget.it' target='_blank'>
+            <a href='#' target='_blank'>
                 <img src='image/youmustgetit.png' />
 
                 <span class='title'>
@@ -545,7 +606,7 @@ talks:
         </span>
 
         <span class='transparent project opensource mvc commandline joke asp.net dotnet'>
-            <a href='https://Dod.CodePlex.com' target='_blank'>
+            <a href='https://github.com/secretGeek/dod' target='_blank'>
                 <img src='image/dod_congrats_202.png' />
 
                 <span class='title'>
@@ -555,10 +616,13 @@ talks:
         </span>
 
         <span class='transparent project api asp.net mvc dotnet'>
-            <img src='image/dirtbag_L.png' />
+            
+            <a href='#' target='_blank'>
+                <img src='image/dirtbag_L.png' />
 
-            <span class='title'>
-                dirtbag spam cleaner</span>
+                <span class='title'>
+                    dirtbag spam cleaner</span>
+            </a>
 
         </span>
 
@@ -623,7 +687,7 @@ talks:
         </span>
 
         <span class='transparent project html5 canvas javascript opensource'>
-            <a href='https://hexerly.codeplex.com/' target='_blank'>
+            <a href='https://secretgeek.github.io/hexerly/samples/index.html/' target='_blank'>
                 <img src='image/hex_logo.png' />
 
                 <span class='title'>
@@ -652,16 +716,6 @@ talks:
             </a>
         </span>
 
-        <span class='transparent project html5 canvas javascript game opensource'>
-            <a href='https://hexerly.codeplex.com/' target='_blank'>
-                <img src='image/puzzler.png' />
-
-                <span class='title'>
-                    Simple Hex Puzzle</span>
-
-            </a>
-        </span>
-
         <span class='transparent project html5 canvas javascript opensource game'>
             <a href='https://hexerly.codeplex.com/' target='_blank'>
                 <img src='image/hexgol.png' />
@@ -674,7 +728,7 @@ talks:
 
         <span class='transparent project contact twitter'>
             <a href='https://twitter.com/secretGeek' target='_blank'>
-                <img src='image/leon_head.png' />
+                <img src='image/main_bright.png' />
 
                 <span class='title'>
                     twitter: @secretgeek</span>
@@ -787,7 +841,7 @@ talks:
 
             </a>
         </span>
-        <span class='transparent project opensource book javascript dotnet commandline'>
+        <span class='transparent project opensource book javascript dotnet website commandline'>
             <a href='https://TIL.secretgeek.net' target='_blank'>
                 <img src='image/til.png' />
 
@@ -796,7 +850,210 @@ talks:
 
             </a>
         </span>
-        
+
+        <span class='transparent project website'>
+            <a href='https://yourfirstproduct.com/Info/Glossary' target='_blank'>
+                <img src='image/glossary_bootstrapping.png' />
+
+                <span class='title'>
+                    Glossary of Bootstrapping Terms</span>
+
+            </a>
+        </span>
+
+        <span class='transparent project game html5 canvas javascript opensource'>
+            <a href='https://secretgeek.github.io/hexerly/samples/puzzler.html' target='_blank'>
+                <img src='image/puzzler.png' />
+                <span class='title'>
+                    Fun, Simple Hex Puzzle</span>
+             </a>
+        </span>
+
+<!-- EXTRAS-->
+
+<span class='transparent project website productivity'>
+    <a href='https://yourfirstproduct.com/info/' target='_blank'>
+        <img src='image/yfp_articles.png' />
+
+        <span class='title'>
+            Your First Product, Articles</span>
+
+    </a>
+</span>
+<span class='transparent project product website productivity'>
+    <a href='https://yourfirstproduct.com/' target='_blank'>
+        <img src='image/yfp.png' />
+
+        <span class='title'>
+            Choose Your First Product (Book!)</span>
+
+    </a>
+</span>
+<span class='transparent project product book history'>
+    <a href='https://secretgeek.net/lca' target='_blank'>
+        <img src='image/lca_50.jpg' />
+
+        <span class='title'>
+            Lakes Creek Adventures (Book!)</span>
+
+    </a>
+</span>
+<span class='transparent project opensource commandline'>
+    <a href='https://github.com/secretGeek/rename-photo' target='_blank'>
+        <img src='image/photo-rename.png' title="The Very Careful Bulk Photo Renaming Tool" />
+
+        <span class='title'>
+            very careful bulk Photo Renaming Tool</span>
+
+    </a>
+</span>
+<span class='transparent project website product book'>
+    <a href='https://evergreenskills.com' target='_blank'>
+        <img src='image/evergreen.png' />
+
+        <span class='title'>
+            Evergreen Skills for Software Developers</span>
+
+    </a>
+</span>
+<span class='transparent project powershell commandline opensource'>
+    <a href='https://secretgeek.net/ok' target='_blank'>
+        <img src='image/ok_.png' />
+
+        <span class='title'>
+            .ok</span>
+
+    </a>
+</span>
+<span class='transparent project website opensource'>
+    <a href='https://secretgeek.net/codes' target='_blank'>
+        <img src='image/placeholder.png' />
+
+        <span class='title'>
+            spycodes</span>
+
+    </a>
+</span>
+<span class='transparent project website productivity html5 javascript'>
+    <a href='https://yourfirstproduct.com/Tools/Productive' target='_blank'>
+        <img src='image/prodflow.png' />
+
+        <span class='title'>
+            Productivity Flowchart</span>
+
+    </a>
+</span>
+<span class='transparent project html5 javascript productivity product website'>
+    <a href='https://yourfirstproduct.com/tools/pricing' target='_blank'>
+        <img src='image/costs_pie_3_combined_.png' />
+
+        <span class='title'>
+            Minimum Price Calculator</span>
+
+    </a>
+</span>
+<span class='transparent project contact website dotnet html5 editor'>
+    <a href='https://wiki.secretGeek.net' target='_blank'>
+        <img src='image/sniki.png' />
+
+        <span class='title'>
+            Wiki</span>
+
+    </a>
+</span>
+<span class='transparent project dotnet website game'>
+    <a href='https://wiki.secretgeek.net/dungeon/generate' target='_blank'>
+        <img src='image/placeholder.png' />
+
+        <span class='title'>
+            Dungeon Generator</span>
+
+    </a>
+</span>
+<span class='transparent project game javascript typescript html5'>
+    <a href='https://devshop.secretgeek.net' target='_blank'>
+        <img src='image/devshop.png' />
+
+        <span class='title'>
+            DevShop</span>
+
+    </a>
+</span>
+<span class='transparent project game dotnet'>
+    <a href='https://github.com/secretGeek/robots-versus-electric-sheep' target='_blank'>
+        <img src='image/robot_v_sheep.png' />
+
+        <span class='title'>
+            robots versus electric sheep</span>
+
+    </a>
+</span>
+<span class='transparent project html5 javascript dotnet opensource'>
+    <a href='' target='_blank'>
+        <img src='image/placeholder.png' />
+
+        <span class='title'>
+            ClownCar</span>
+
+    </a>
+</span>
+<span class='transparent project game javascript html5'>
+    <a href='' target='_blank'>
+        <img src='image/placeholder.png' />
+
+        <span class='title'>
+            32-bit</span>
+
+    </a>
+</span>
+<span class='transparent project opensource website'>
+    <a href='' target='_blank'>
+        <img src='image/placeholder.png' />
+
+        <span class='title'>
+            awesome csv (list)</span>
+
+    </a>
+</span>
+<span class='transparent project opensource website'>
+    <a href='' target='_blank'>
+        <img src='image/placeholder.png' />
+
+        <span class='title'>
+            awesome guid (list)</span>
+
+    </a>
+</span>
+<span class='transparent project opensource website game productivity javascript html5'>
+    <a href='https://secretgeek.github.io/yard-sale/' target='_blank'>
+        <img src='image/yardsale.png' />
+
+        <span class='title'>
+            Yard-sale-model</span>
+
+    </a>
+</span>
+<span class='transparent project game javascript html5 website joke opensource'>
+    <a href='https://secretgeek.github.io/cosmic-ray-detector/index.html' target='_blank'>
+        <img src='image/cosmicray.png' />
+
+        <span class='title'>
+            Cosmic-Ray-Detector</span>
+
+    </a>
+</span>
+<span class='transparent project javascript html5 website opensource simulator'>
+    <a href='https://secretgeek.net/pathos_' target='_blank'>
+        <img src='image/pathos_.png' />
+
+        <span class='title'>
+            Creative Work Simulator</span>
+
+    </a>
+</span>
+<!-- /EXTRAS-->
+
+
     </div>
     <!-- #container -->
     <script src="jquery-1.7.1.min.js"></script>
@@ -866,7 +1123,6 @@ talks:
                 //options = ($('#options .option-set a').length);
                 var $optionSet = $('#options .option-set'),
                 $optionLinks = $optionSet.find('a');
-                $optionSet.find('.selected').removeClass('selected');
                 $optionSet.find('.selected').removeClass('selected');
                 $newOption = $optionLinks[Math.round(Math.random() * ($optionLinks.length - 1))];
                 $($newOption).addClass('selected');

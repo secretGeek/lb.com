@@ -1,1 +1,3 @@
+code .
 npx http-server -o # serve it!
+n todo.md
