@@ -1,22 +1,26 @@
 - todo:
 
+- [ ] Add title to every project
+
 - [x] Make it not show things that have "placeholder"
 
 - ## GOAL: remove references to codeplex
-secre	
+
 	[x] KV
 	
 	index.html 460 <a href='https://kv.codeplex.com' target='_blank'>
-		C:\Users\leonb\Dropbox\secretGeek\all_someday_projects\kv\kv\kv
-		
-		
-		[kv can remember it for you, wholesale](https://secretgeek.net/kv)
+		- C:\Users\leonb\Dropbox\secretGeek\all_someday_projects\kv\kv\kv
+		- [kv can remember it for you, wholesale](https://secretgeek.net/kv)
 		
 	[ ] KP
-	
+
 	index.html 470 <a href='https://kp.codeplex.com' target='_blank'>
 		- C:\Users\leonb\Dropbox\secretGeek\all_someday_projects\kp
-	
+		- https://github.com/secretGeek/kp
+		- KP
+			- https://secretGeek@github.com/secretGeek/kp.git
+			- https://github.com/secretGeek/kp
+
 	
 	[ ] SYSI
 	index.html 490 <a href='https://sysi.codeplex.com' target='_blank'>

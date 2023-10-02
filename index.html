@@ -32,7 +32,7 @@ One thing I didn't take the time to include was links to talks i've given. Talks
 	* build your own microIsv
 	* F# eye for the C# guy
 	* Asp.net core on LINUX (with Joseph Cooney)
-	* Evergreen Skills for Software Developer (with Joseph Cooney)
+	* Evergreen Skills for Software Developers (with Joseph Cooney)
 
 Thing I haven't added yet
 
@@ -46,7 +46,7 @@ Thing I haven't added yet
 And here's the nimbleText.com pattern:
 
 $EACH+        <span class='transparent project $0'>
-            <a href='$1' target='_blank'>
+            <a href='$1' target='_blank' title='$4'>
                 <img src='image/<% if ($2 == '') { 'placeholder.png' } else { $2 } %>' />
 
                 <span class='title'>
@@ -55,7 +55,7 @@ $EACH+        <span class='transparent project $0'>
             </a>
         </span>
  
-    tags*|url|png|title
+    tags*|url|png|title|description
 	* tags are space separated, should be one or more of:
 	game contact opensource dotnet website javascript mvc html5 editor productivity commandline joke 
         
@@ -94,8 +94,6 @@ game javascript html5 website joke opensource|https://secretgeek.github.io/cosmi
 |https://secretgeek.github.io/html_wysiwyg/html.html||Brutalist HTML Quine 
 javascript html5 website opensource simulator|https://secretgeek.net/pathos_||Creative Work Simulator
 
-
-	
 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
@@ -107,19 +105,21 @@ javascript html5 website opensource simulator|https://secretgeek.net/pathos_||Cr
         type='text/css'>
     <style>
 * {
-xbox-shadow: 1px 1px 8px #333;
-xoutline:1px solid rgba(0,0,0,0.3);
+/*xbox-shadow: 1px 1px 8px #333;
+xoutline:1px solid rgba(0,0,0,0.3);*/
 } 
 
 .blogpost-link {
     position:absolute;
-    top:0;
-    right:0;
+    bottom:22.5px;
+    left:0;
+    width:calc(100% - 18px);
     font-size:1.5em;
     padding:0.2em 0.4em;
     box-shadow:0 0 3px inset rgba(0,0,0,0.7), 0 0 7px inset rgba(0,0,0,0.7);
     background-color:rgba(20,180,250,0.5);
-    color:black !important;
+    color:white !important;
+    text-shadow:1px 1px 1px #000, 1px 1px 2px #000, 1px 1px 4px #000, 1px 1px 8px #000;
 }
 
 span.project:has(a img[src='image/placeholder.png']) { 
@@ -280,6 +280,12 @@ span.project:has(a img[src='image/placeholder.png']) {
         }
         
         /* End: Recommended Isotope styles */
+        ul li:not(:last-child)::after() { content:"|";
+    color:red;
+    background-color:cyan;
+    
+    }
+
     </style>
 </head>
 <body>
@@ -288,37 +294,25 @@ span.project:has(a img[src='image/placeholder.png']) {
         <ul id="filter" class="option-set clearfix" data-option-key="filter">
             <li>FILTER BY:&nbsp;&nbsp;&nbsp; </li>
             <li><a href="#show-all" data-option-value="*" class="selected">ALL</a></li>
-            |
             <li><a href="#features" data-option-value=".game">games</a></li>
-            |
             <li><a href="#features" data-option-value=".contact">contact</a></li>
-            |
             <li><a href="#features" data-option-value=".opensource">open source</a></li>
-            |
             <li><a href="#features" data-option-value=".dotnet">.net</a></li>
-            |
             <li><a href="#features" data-option-value=".website">web sites</a></li>
-            |
             <li><a href="#features" data-option-value=".javascript">javascript</a></li>
-            |
             <li><a href="#features" data-option-value=".mvc">mvc</a></li>
-            |
             <li><a href="#features" data-option-value=".html5">html5</a></li>
-            |
             <li><a href="#features" data-option-value=".editor">editors</a></li>
-            |
             <li><a href="#features" data-option-value=".productivity">productivity</a></li>
-            |
             <li><a href="#features" data-option-value=".commandline">commandline</a></li>
-            |
             <li><a href="#examples" data-option-value=".joke">parody</a></li>
         </ul>
     </section>
     <div id="container">
 
         <span class='transparent project product winforms website productivity dotnet'>
-            <a href='https://TimeSnapper.com' target='_blank'>
-                <img src='image/ts-mainform-inactive.png' title='' />
+            <a href='https://TimeSnapper.com' target='_blank'  title='TimeSnapper - Play and Record Automatic Screenshots' >
+                <img src='image/ts-mainform-inactive.png' />
 
                 <span class='title'>
                     TimeSnapper</span>
@@ -327,7 +321,8 @@ span.project:has(a img[src='image/placeholder.png']) {
         </span>
 
         <span class='transparent project winforms csv website product editor productivity dotnet javascript'>
-            <a href='https://nimbleText.com' target='_blank'>
+            <a href='https://nimbleText.com' target='_blank' title="Manipulate text and data with light-weight patterns
+            ">
                 <img src='image/nimbleText_plain_narrow_202.png' />
 
                 <span class='title'>
@@ -337,7 +332,7 @@ span.project:has(a img[src='image/placeholder.png']) {
         </span>
 
         <span class='transparent project contact blog writing website dotnet'>
-            <a href='https://secretGeek.net' target='_blank'>
+            <a href='https://secretGeek.net' target='_blank' title="SecretGeek - my blog of many years">
                 <img src='image/secretgeek.png' />
 
                 <span class='title'>
@@ -347,7 +342,7 @@ span.project:has(a img[src='image/placeholder.png']) {
         </span>
 
         <span class='transparent project opensource html5 css'>
-            <a href='https://secretgeek.github.io/higgins/' target='_blank'>
+            <a href='https://secretgeek.github.io/higgins/' target='_blank' title="Higgins - A very simple Html based slide-viewer">
                 <img src='image/higgins_logo.png' />
 
                 <span class='title'>
@@ -357,7 +352,7 @@ span.project:has(a img[src='image/placeholder.png']) {
         </span>
 
         <span class='transparent project contact stackoverflow'>
-            <a href='https://stackoverflow.com/users/49/leon-bambrick' target='_blank'>
+            <a href='https://stackoverflow.com/users/49/leon-bambrick' target='_blank' title="My User Profile at stackoverflow">
                 <img src='image/stackoverflow.png' />
 
                 <span class='title'>
@@ -368,7 +363,7 @@ span.project:has(a img[src='image/placeholder.png']) {
 
         <span class='transparent project contact email'>
 
-            <a href='#' target='_blank'>
+            <a href='#' target='_blank' title="Email leon bambrick at gmail dot com">
                 <img src='image/contact.png' />
 
                 <span class='title'>
@@ -378,7 +373,7 @@ span.project:has(a img[src='image/placeholder.png']) {
         </span>
 
         <span class='transparent project contact opensource dotnet'>
-            <a href='#' target='_blank'>
+            <a href='#' title="Profile at the (now-defunct) codeplex (link removed)">
                 <img src='image/colorVariations_02.png' />
 
                 <span class='title'>
@@ -388,7 +383,7 @@ span.project:has(a img[src='image/placeholder.png']) {
         </span>
 
         <span class='transparent project contact opensource dotnet'>
-            <a href='https://github.com/secretGeek/' target='_blank'>
+            <a href='https://github.com/secretGeek/' target='_blank' title="user: secretGeek, My personal profile and repositories at Github">
                 <img src='image/github.png' title="github profile"/>
 
                 <span class='title'>
@@ -398,7 +393,7 @@ span.project:has(a img[src='image/placeholder.png']) {
         </span>
 
         <span class='transparent project html5 javascript opensource contact website'>
-            <a href='https://LeonBambrick.com' target='_blank'>
+            <a href='https://LeonBambrick.com' target='_blank' title="LeonBambrick.com (this site)">
                 <img src='image/lb_com.png' />
 
                 <span class='title'>
@@ -408,7 +403,7 @@ span.project:has(a img[src='image/placeholder.png']) {
         </span>
 
         <span class='transparent project tool product todo productivity dotnet'>
-            <a href='https://Timesnapper.com/nextaction/' target='_blank'>
+            <a href='https://Timesnapper.com/nextaction/' target='_blank' title="NextAction - a 'top of your mind' assistant">
                 <img src='image/nextAction_inactive.PNG' />
 
                 <span class='title'>
@@ -418,7 +413,7 @@ span.project:has(a img[src='image/placeholder.png']) {
         </span>
 
         <span class='transparent project game joke'>
-            <a href='https://secretgeek.net/wikigame2.html' target='_blank'>
+            <a href='https://secretgeek.net/wikigame2.html' target='_blank' title="Handguns and Cigarettes - a simple html based adventure / trading game.">
                 <img src='image/handgunsandcigarettes.png' />
 
                 <span class='title'>
@@ -427,7 +422,7 @@ span.project:has(a img[src='image/placeholder.png']) {
             </a>
         </span>
         <span class='transparent project game dungeon crawler'>
-            <a href='#'>
+            <a href='#' title="">
                 <img src='image/monsterBoxDoor.png' />
 
                 <span class='title'>
@@ -506,10 +501,10 @@ span.project:has(a img[src='image/placeholder.png']) {
         </span>
 
         <span class='transparent project opensource commandline nosql dotnet'>
-            <a href='https://github.com/secretGeek/kv' target='_blank'>
+            <a href='https://github.com/secretGeek/kv' target='_blank'  title="KV - key value store">
                 <img src='image/kv.jpg' />
 
-                <span class='title' title="KV - key value store">
+                <span class='title'>
                     kv</span>
                     
 
@@ -518,13 +513,14 @@ span.project:has(a img[src='image/placeholder.png']) {
         </span>
 
         <span class='transparent project opensource commandline security nosql dotnet'>
-            <a href='https://kp.codeplex.com' target='_blank'>
-                <img src='image/kp.png' />
+            <a href='https://github.com/secretGeek/kp' target='_blank' title="KP - commandline password manager, very minimal">
+                <img src='image/kp_consolepasswords.png' />
 
                 <span class='title'>
                     kp</span>
 
             </a>
+            
         </span>
 
         <span class='transparent project opensource commandline'>
@@ -586,7 +582,7 @@ span.project:has(a img[src='image/placeholder.png']) {
         </span>
 
         <span class='transparent project website graphics aspdotnet mvc product asp.net dotnet'>
-            <a href='#' target='_blank'>
+            <a href='#' title="You Must Get It: a social network for product recommendations (no longer online)">
                 <img src='image/youmustgetit.png' />
 
                 <span class='title'>
@@ -617,7 +613,7 @@ span.project:has(a img[src='image/placeholder.png']) {
 
         <span class='transparent project api asp.net mvc dotnet'>
             
-            <a href='#' target='_blank'>
+            <a href='#' title="Dirtbag - spam cleaner used by my blog. Not publicly released.">
                 <img src='image/dirtbag_L.png' />
 
                 <span class='title'>
@@ -627,7 +623,7 @@ span.project:has(a img[src='image/placeholder.png']) {
         </span>
 
         <span class='transparent project product website sets venn javascript'>
-            <a href='https://secretGeek.net/NimbleSet.htm' target='_blank'>
+            <a href='https://secretGeek.net/NimbleSet.htm' target='_blank' title="NimbleText">
                 <img src='image/nimbleSet_right_only_th_202.png' />
 
                 <span class='title'>
