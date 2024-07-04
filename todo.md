@@ -1,10 +1,10 @@
 - todo:
 
-- [ ] Add title to every project
-
+- [ ] Add title to every project (like KV? `<a class="blogpost-link"`
+ 
 - [x] Make it not show things that have "placeholder"
 
-- ## GOAL: remove references to codeplex
+- [ ] GOAL: remove references to codeplex
 
 	[x] KV
 	
@@ -12,7 +12,7 @@
 		- C:\Users\leonb\Dropbox\secretGeek\all_someday_projects\kv\kv\kv
 		- [kv can remember it for you, wholesale](https://secretgeek.net/kv)
 		
-	[ ] KP
+	[x] KP
 
 	index.html 470 <a href='https://kp.codeplex.com' target='_blank'>
 		- C:\Users\leonb\Dropbox\secretGeek\all_someday_projects\kp
@@ -42,11 +42,14 @@
 	[ ] Stashy
 	index.html 656 <a href='https://stashy.CodePlex.com' target='_blank'>
 		- C:\Users\leonb\Dropbox\secretGeek\all_someday_projects\Stashy\stashy
+		- https://secretgeek.net/stashy_gist
+		- https://gist.github.com/secretGeek/1afc53356373cc4c790876adf6a356cf
 	
-Thing I haven't added yet
+[ ] Thing I haven't added yet
 
 	[x] DevShop
 	[x] robots versus electric sheep
+	[ ] DGAF - dgaf.secretgeek.net
 	[ ] Dungeon generator
 	[ ] ClownCar
 	[ ] 32-bit
@@ -71,7 +74,8 @@ Thing I haven't added yet
 	[x] creative work simulator
 	[x] Contact += GitHUB	https://github.com/secretGeek/
 	[ ] Contact += Mastodon	https://mastodon.cloud/@secretgeek
-	
+	[ ] Next Panic!	
+	[ ] Focus.exe!
 	
 More things to do:
 
@@ -81,10 +85,16 @@ More things to do:
 	[x] Change image for "twitter @secretgeek" - leon_head
 
 
+[ ] Add these images (6)
+	[ ] <img src='image/placeholder.png' title='spycodes' />
+	[ ] <img src='image/placeholder.png' title='dungeon generator' />
+	[ ] <img src='image/placeholder.png' title='clown car' />
+	[ ] <img src='image/placeholder.png' title='32 bit match game' />
+	[ ] <img src='image/placeholder.png' title='awesome csv' />
+	[ ] <img src='image/placeholder.png' title='awesome guid' />
+
 ## Defer
-
-
 
 	[ ] SHINY
 		index.html 430 <a href='https://shinypower.codeplex.com/' target='_blank'>
-
+		I think I actually lost this code!!
